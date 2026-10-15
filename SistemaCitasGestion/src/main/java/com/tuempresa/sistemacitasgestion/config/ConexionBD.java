@@ -2,6 +2,8 @@ package com.tuempresa.sistemacitasgestion.config;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +20,7 @@ public final class ConexionBD {
             if (in == null) {
                 throw new IllegalStateException("Falta src/main/resources/db.properties");
             }
-            PROPS.load(in);
+            PROPS.load(new InputStreamReader(in, StandardCharsets.UTF_8));
         } catch (IOException e) {
             throw new IllegalStateException("No se pudo leer db.properties", e);
         }
@@ -26,16 +28,23 @@ public final class ConexionBD {
 
     private ConexionBD() {}
 
+    private static String valor(String clave) {
+        for (String k : PROPS.stringPropertyNames()) {
+            if (k.replace("\uFEFF", "").trim().equals(clave)) {
+                return PROPS.getProperty(k).trim();
+            }
+        }
+        throw new IllegalStateException("Falta la clave '" + clave + "' en db.properties. Claves leídas: "
+                + PROPS.stringPropertyNames());
+    }
+
     public static Connection obtener() throws SQLException {
-        return DriverManager.getConnection(
-                PROPS.getProperty("db.url"),
-                PROPS.getProperty("db.user"),
-                PROPS.getProperty("db.password"));
+        return DriverManager.getConnection(valor("db.url"), valor("db.user"), valor("db.password"));
     }
 
     // Statement para SQL fijo sin datos del usuario
     public static boolean probar() {
-        try (Connection cn = ConexionBD.obtener();
+        try (Connection cn = obtener();
              Statement st = cn.createStatement();
              ResultSet rs = st.executeQuery("SELECT 1")) {
             return rs.next();
