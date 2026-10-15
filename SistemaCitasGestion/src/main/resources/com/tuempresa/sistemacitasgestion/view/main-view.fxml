@@ -18,6 +18,9 @@
             <Tab text="Clientes">
                 <fx:include source="cliente-view.fxml"/>
             </Tab>
+            <Tab text="Citas">
+                <fx:include source="citas-view.fxml"/>
+            </Tab>
         </TabPane>
     </center>
 </BorderPane>
