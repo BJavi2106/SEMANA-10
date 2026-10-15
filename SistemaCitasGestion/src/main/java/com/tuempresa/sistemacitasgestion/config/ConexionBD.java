@@ -28,9 +28,9 @@ public final class ConexionBD {
 
     public static Connection obtener() throws SQLException {
         return DriverManager.getConnection(
-                PROPS.getProperty("db.url"),
-                PROPS.getProperty("db.user"),
-                PROPS.getProperty("db.password"));
+                PROPS.getProperty("jdbc:postgresql://localhost:543/gestion_citas"),
+                PROPS.getProperty("postgres"),
+                PROPS.getProperty(""));
     }
 
     // Statement para SQL fijo sin datos del usuario
