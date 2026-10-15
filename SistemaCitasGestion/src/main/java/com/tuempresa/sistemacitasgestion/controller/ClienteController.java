@@ -161,6 +161,8 @@ public class ClienteController {
         txtTelefono.setText(c.getTelefono());
         txtCorreo.setText(c.getCorreo());
         chkActivo.setSelected(c.isActivo());
+
+
     }
 
     private Cliente leerFormulario(int id) {
@@ -168,6 +170,29 @@ public class ClienteController {
         String apellidos = txtApellidos.getText();
         String telefono = txtTelefono.getText();
         String correo = txtCorreo.getText();
+
+        if (Validador.vacio(nombres) || Validador.vacio(apellidos)
+                || Validador.vacio(telefono) || Validador.vacio(correo)) {
+            Alertas.advertencia("Todos los campos son obligatorios.");
+            return null;
+        }
+
+// === TU VALIDACIÓN AGREGADA ===
+        if (!Validador.nombreValido(nombres)) {
+            Alertas.advertencia("El nombre solo debe contener letras.");
+            return null;
+        }
+
+        if (!Validador.nombreValido(apellidos)) {
+            Alertas.advertencia("El apellido solo debe contener letras.");
+            return null;
+        }
+// ==============================
+
+        if (!Validador.telefonoValido(telefono)) {
+            Alertas.advertencia("El teléfono solo admite números, +, - y espacios (8 a 20 caracteres).");
+            return null;
+        }
 
         if (Validador.vacio(nombres) || Validador.vacio(apellidos)
                 || Validador.vacio(telefono) || Validador.vacio(correo)) {
