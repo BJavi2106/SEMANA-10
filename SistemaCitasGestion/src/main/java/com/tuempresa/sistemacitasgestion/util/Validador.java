@@ -16,6 +16,13 @@ public final class Validador {
         return s == null || s.isBlank();
     }
 
+    public static boolean nombreValido(String texto) {
+        if (vacio(texto)) {
+            return false;
+        }
+        return texto.trim().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+");
+    }
+
     public static boolean correoValido(String correo) {
         return correo != null && CORREO.matcher(correo.trim()).matches();
     }
