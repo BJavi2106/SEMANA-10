@@ -39,6 +39,16 @@
 .text-field { -fx-padding: 9 12; }
 .text-field:focused, .combo-box:focused, .date-picker:focused { -fx-border-color: -azul; }
 .date-picker .text-field, .combo-box .text-field { -fx-border-color: transparent; }
+
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: -borde;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.text-area .content { -fx-background-color: white; -fx-background-radius: 8; }
+.text-area:focused { -fx-border-color: -azul; }
+
 .check-box:selected .mark { -fx-background-color: white; }
 .check-box:selected .box { -fx-background-color: -azul; -fx-border-color: -azul; }
 

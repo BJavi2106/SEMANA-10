@@ -1,11 +1,9 @@
-
 package com.tuempresa.sistemacitasgestion.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class CitaTecnica {
-
     private int id;
     private int clienteId;
     private String clienteNombre;
@@ -15,13 +13,10 @@ public class CitaTecnica {
     private String descripcion;
     private String estado;
 
-    public CitaTecnica() {
-    }
+    public CitaTecnica() {}
 
-    public CitaTecnica(int id, int clienteId, String clienteNombre,
-                       LocalDate fecha, LocalTime hora,
-                       String tipoServicio, String descripcion,
-                       String estado) {
+    public CitaTecnica(int id, int clienteId, String clienteNombre, LocalDate fecha, LocalTime hora,
+                       String tipoServicio, String descripcion, String estado) {
         this.id = id;
         this.clienteId = clienteId;
         this.clienteNombre = clienteNombre;
@@ -32,81 +27,27 @@ public class CitaTecnica {
         this.estado = estado;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getClienteId() { return clienteId; }
+    public void setClienteId(int clienteId) { this.clienteId = clienteId; }
 
-    public int getClienteId() {
-        return clienteId;
-    }
+    public String getClienteNombre() { return clienteNombre; }
+    public void setClienteNombre(String clienteNombre) { this.clienteNombre = clienteNombre; }
 
-    public void setClienteId(int clienteId) {
-        this.clienteId = clienteId;
-    }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
 
-    public String getClienteNombre() {
-        return clienteNombre;
-    }
+    public LocalTime getHora() { return hora; }
+    public void setHora(LocalTime hora) { this.hora = hora; }
 
-    public void setClienteNombre(String clienteNombre) {
-        this.clienteNombre = clienteNombre;
-    }
+    public String getTipoServicio() { return tipoServicio; }
+    public void setTipoServicio(String tipoServicio) { this.tipoServicio = tipoServicio; }
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public LocalTime getHora() {
-        return hora;
-    }
-
-    public void setHora(LocalTime hora) {
-        this.hora = hora;
-    }
-
-    public String getTipoServicio() {
-        return tipoServicio;
-    }
-
-    public void setTipoServicio(String tipoServicio) {
-        this.tipoServicio = tipoServicio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "CitaTecnica{" +
-                "id=" + id +
-                ", clienteId=" + clienteId +
-                ", clienteNombre='" + clienteNombre + '\'' +
-                ", fecha=" + fecha +
-                ", hora=" + hora +
-                ", tipoServicio='" + tipoServicio + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
-    }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 }
